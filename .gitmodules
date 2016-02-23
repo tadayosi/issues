@@ -1,0 +1,3 @@
+[submodule "ENTESB-4889/xalan-tests"]
+	path = ENTESB-4889/xalan-tests
+	url = https://github.com/tadayosi/xalan-tests.git
