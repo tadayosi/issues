@@ -16,8 +16,8 @@ import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,24 +33,26 @@ public class HttpQueryTest extends CamelTestSupport {
                 // @formatter:off
                 from("netty-http:http://localhost:9000/camel?matchOnUriPrefix=true")
                     .to("http4://localhost:9009/fred?bridgeEndpoint=true");
-
                 from("jetty:http://localhost:9001/camel?matchOnUriPrefix=true")
                     .to("http4://localhost:9009/fred?bridgeEndpoint=true");
-
                 from("netty4-http:http://localhost:9002/camel?matchOnUriPrefix=true")
                     .to("http4://localhost:9009/fred?bridgeEndpoint=true");
 
-                from("netty4-http:http://localhost:9003/camel?matchOnUriPrefix=true")
+                from("netty-http:http://localhost:9003/camel?matchOnUriPrefix=true")
+                    .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
+                from("jetty:http://localhost:9004/camel?matchOnUriPrefix=true")
+                    .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
+                from("netty4-http:http://localhost:9005/camel?matchOnUriPrefix=true")
                     .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
                 // @formatter:on
             }
         };
     }
 
-    private Server server;
+    private static Server server;
 
-    @Before
-    public void startServer() throws Exception {
+    @BeforeClass
+    public static void startServer() throws Exception {
         server = new Server(9009);
         server.setHandler(new AbstractHandler() {
             @Override
@@ -68,8 +70,8 @@ public class HttpQueryTest extends CamelTestSupport {
         server.start();
     }
 
-    @After
-    public void stopServer() throws Exception {
+    @AfterClass
+    public static void stopServer() throws Exception {
         if (server == null) return;
         server.stop();
         server = null;
@@ -103,10 +105,28 @@ public class HttpQueryTest extends CamelTestSupport {
     }
 
     @Test
-    public void netty4http_netty4http() throws Exception {
+    public void netty_netty4http() throws Exception {
         String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
         LOG.info("Encoded query  = {}", query);
         Content response = Request.Get("http://localhost:9003/camel/?" + query).execute().returnContent();
+
+        assertThat(response.asString(), is(query));
+    }
+
+    @Test
+    public void jetty_netty4http() throws Exception {
+        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
+        LOG.info("Encoded query  = {}", query);
+        Content response = Request.Get("http://localhost:9004/camel/?" + query).execute().returnContent();
+
+        assertThat(response.asString(), is(query));
+    }
+
+    @Test
+    public void netty4http_netty4http() throws Exception {
+        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
+        LOG.info("Encoded query  = {}", query);
+        Content response = Request.Get("http://localhost:9005/camel/?" + query).execute().returnContent();
 
         assertThat(response.asString(), is(query));
     }
