@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
@@ -31,6 +32,7 @@ public class HttpQueryTest extends CamelTestSupport {
         return new RouteBuilder() {
             public void configure() {
                 // @formatter:off
+                // to 'http4'
                 from("netty-http:http://localhost:9000/camel?matchOnUriPrefix=true")
                     .to("http4://localhost:9009/fred?bridgeEndpoint=true");
                 from("jetty:http://localhost:9001/camel?matchOnUriPrefix=true")
@@ -38,12 +40,21 @@ public class HttpQueryTest extends CamelTestSupport {
                 from("netty4-http:http://localhost:9002/camel?matchOnUriPrefix=true")
                     .to("http4://localhost:9009/fred?bridgeEndpoint=true");
 
+                // to 'netty4-http'
                 from("netty-http:http://localhost:9003/camel?matchOnUriPrefix=true")
                     .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
                 from("jetty:http://localhost:9004/camel?matchOnUriPrefix=true")
                     .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
                 from("netty4-http:http://localhost:9005/camel?matchOnUriPrefix=true")
                     .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
+
+                // to 'jetty'
+                from("netty-http:http://localhost:9006/camel?matchOnUriPrefix=true")
+                    .to("jetty:http://localhost:9009/fred?bridgeEndpoint=true");
+                from("jetty:http://localhost:9007/camel?matchOnUriPrefix=true")
+                    .to("jetty:http://localhost:9009/fred?bridgeEndpoint=true");
+                from("netty4-http:http://localhost:9008/camel?matchOnUriPrefix=true")
+                    .to("jetty:http://localhost:9009/fred?bridgeEndpoint=true");
                 // @formatter:on
             }
         };
@@ -77,58 +88,76 @@ public class HttpQueryTest extends CamelTestSupport {
         server = null;
     }
 
+    private static final String QUERY;
+    static {
+        try {
+            QUERY = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Test
     public void netty_http4() throws Exception {
-        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
-        LOG.info("Encoded query  = {}", query);
-        Content response = Request.Get("http://localhost:9000/camel/?" + query).execute().returnContent();
-
-        assertThat(response.asString(), is(query));
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9000/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
     }
 
     @Test
     public void jetty_http4() throws Exception {
-        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
-        LOG.info("Encoded query  = {}", query);
-        Content response = Request.Get("http://localhost:9001/camel/?" + query).execute().returnContent();
-
-        assertThat(response.asString(), is(query));
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9001/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
     }
 
     @Test
     public void netty4http_http4() throws Exception {
-        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
-        LOG.info("Encoded query  = {}", query);
-        Content response = Request.Get("http://localhost:9002/camel/?" + query).execute().returnContent();
-
-        assertThat(response.asString(), is(query));
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9002/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
     }
 
     @Test
     public void netty_netty4http() throws Exception {
-        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
-        LOG.info("Encoded query  = {}", query);
-        Content response = Request.Get("http://localhost:9003/camel/?" + query).execute().returnContent();
-
-        assertThat(response.asString(), is(query));
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9003/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
     }
 
     @Test
     public void jetty_netty4http() throws Exception {
-        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
-        LOG.info("Encoded query  = {}", query);
-        Content response = Request.Get("http://localhost:9004/camel/?" + query).execute().returnContent();
-
-        assertThat(response.asString(), is(query));
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9004/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
     }
 
     @Test
     public void netty4http_netty4http() throws Exception {
-        String query = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
-        LOG.info("Encoded query  = {}", query);
-        Content response = Request.Get("http://localhost:9005/camel/?" + query).execute().returnContent();
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9005/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
+    }
 
-        assertThat(response.asString(), is(query));
+    @Test
+    public void netty_jetty() throws Exception {
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9006/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
+    }
+
+    @Test
+    public void jetty_jetty() throws Exception {
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9007/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
+    }
+
+    @Test
+    public void netty4http_jetty() throws Exception {
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9008/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
     }
 
 }
