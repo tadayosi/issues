@@ -34,27 +34,35 @@ public class HttpQueryTest extends CamelTestSupport {
                 // @formatter:off
                 // to 'http4'
                 from("netty-http:http://localhost:9000/camel?matchOnUriPrefix=true")
-                    .to("http4://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("http4://localhost:10000/fred?bridgeEndpoint=true");
                 from("jetty:http://localhost:9001/camel?matchOnUriPrefix=true")
-                    .to("http4://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("http4://localhost:10000/fred?bridgeEndpoint=true");
                 from("netty4-http:http://localhost:9002/camel?matchOnUriPrefix=true")
-                    .to("http4://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("http4://localhost:10000/fred?bridgeEndpoint=true");
 
                 // to 'netty4-http'
                 from("netty-http:http://localhost:9003/camel?matchOnUriPrefix=true")
-                    .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("netty4-http:http://localhost:10000/fred?bridgeEndpoint=true");
                 from("jetty:http://localhost:9004/camel?matchOnUriPrefix=true")
-                    .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("netty4-http:http://localhost:10000/fred?bridgeEndpoint=true");
                 from("netty4-http:http://localhost:9005/camel?matchOnUriPrefix=true")
-                    .to("netty4-http:http://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("netty4-http:http://localhost:10000/fred?bridgeEndpoint=true");
 
                 // to 'jetty'
                 from("netty-http:http://localhost:9006/camel?matchOnUriPrefix=true")
-                    .to("jetty:http://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("jetty:http://localhost:10000/fred?bridgeEndpoint=true");
                 from("jetty:http://localhost:9007/camel?matchOnUriPrefix=true")
-                    .to("jetty:http://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("jetty:http://localhost:10000/fred?bridgeEndpoint=true");
                 from("netty4-http:http://localhost:9008/camel?matchOnUriPrefix=true")
-                    .to("jetty:http://localhost:9009/fred?bridgeEndpoint=true");
+                    .to("jetty:http://localhost:10000/fred?bridgeEndpoint=true");
+
+                // to 'netty-http'
+                from("netty-http:http://localhost:9009/camel?matchOnUriPrefix=true")
+                    .to("netty-http:http://localhost:10000/fred?bridgeEndpoint=true");
+                from("jetty:http://localhost:9010/camel?matchOnUriPrefix=true")
+                    .to("netty-http:http://localhost:10000/fred?bridgeEndpoint=true");
+                from("netty4-http:http://localhost:9011/camel?matchOnUriPrefix=true")
+                    .to("netty-http:http://localhost:10000/fred?bridgeEndpoint=true");
                 // @formatter:on
             }
         };
@@ -64,7 +72,7 @@ public class HttpQueryTest extends CamelTestSupport {
 
     @BeforeClass
     public static void startServer() throws Exception {
-        server = new Server(9009);
+        server = new Server(10000);
         server.setHandler(new AbstractHandler() {
             @Override
             public void handle(String target, org.eclipse.jetty.server.Request baseRequest, HttpServletRequest request,
@@ -157,6 +165,27 @@ public class HttpQueryTest extends CamelTestSupport {
     public void netty4http_jetty() throws Exception {
         LOG.info("Encoded query  = {}", QUERY);
         Content response = Request.Get("http://localhost:9008/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
+    }
+
+    @Test
+    public void netty_nettyhttp() throws Exception {
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9009/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
+    }
+
+    @Test
+    public void jetty_nettyhttp() throws Exception {
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9010/camel/?" + QUERY).execute().returnContent();
+        assertThat(response.asString(), is(QUERY));
+    }
+
+    @Test
+    public void netty4http_nettyhttp() throws Exception {
+        LOG.info("Encoded query  = {}", QUERY);
+        Content response = Request.Get("http://localhost:9011/camel/?" + QUERY).execute().returnContent();
         assertThat(response.asString(), is(QUERY));
     }
 
