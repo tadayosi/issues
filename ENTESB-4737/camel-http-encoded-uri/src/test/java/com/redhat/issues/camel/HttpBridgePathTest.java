@@ -11,11 +11,11 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HttpPathTest extends BaseHttpTest {
+public class HttpBridgePathTest extends BaseHttpBridgeTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(HttpPathTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HttpBridgePathTest.class);
 
-    private static final String PATH;
+    private static String PATH;
     static {
         try {
             PATH = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");

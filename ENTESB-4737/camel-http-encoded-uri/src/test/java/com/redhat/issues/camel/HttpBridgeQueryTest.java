@@ -11,9 +11,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HttpQueryTest extends BaseHttpTest {
+public class HttpBridgeQueryTest extends BaseHttpBridgeTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(HttpQueryTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HttpBridgeQueryTest.class);
 
     private static final String QUERY;
     static {

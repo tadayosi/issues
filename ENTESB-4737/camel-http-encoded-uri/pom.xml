@@ -14,7 +14,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <version.camel>2.17-SNAPSHOT</version.camel>
-    <!-- <version.camel>2.16.1.redhat-630015</version.camel> -->
+    <!-- <version.camel>2.16.1.redhat-630-SNAPSHOT</version.camel> -->
     <!-- <version.camel>2.15.1.redhat-621084</version.camel> -->
   </properties>
 

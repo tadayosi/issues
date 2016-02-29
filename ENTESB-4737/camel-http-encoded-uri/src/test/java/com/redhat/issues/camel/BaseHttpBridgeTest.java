@@ -16,9 +16,9 @@ import org.junit.BeforeClass;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class BaseHttpTest extends CamelTestSupport {
+public abstract class BaseHttpBridgeTest extends CamelTestSupport {
 
-    private static final Logger LOG = LoggerFactory.getLogger(BaseHttpTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BaseHttpBridgeTest.class);
 
     @Override
     protected RouteBuilder createRouteBuilder() throws Exception {
