@@ -5,6 +5,8 @@ import static org.hamcrest.Matchers.*;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
 import org.junit.Test;
@@ -15,10 +17,15 @@ public class HttpBridgePathTest extends BaseHttpBridgeTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(HttpBridgePathTest.class);
 
+    @Override
+    protected String serverResponse(HttpServletRequest request) {
+        return request.getPathInfo().substring("/fred/".length());
+    }
+
     private static String PATH;
     static {
         try {
-            PATH = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
+            PATH = URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }

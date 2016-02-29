@@ -11,8 +11,8 @@ import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,10 +61,10 @@ public abstract class BaseHttpBridgeTest extends CamelTestSupport {
         };
     }
 
-    private static Server server;
+    private Server server;
 
-    @BeforeClass
-    public static void startServer() throws Exception {
+    @Before
+    public void startServer() throws Exception {
         server = new Server(10000);
         server.setHandler(new AbstractHandler() {
             @Override
@@ -76,15 +76,17 @@ public abstract class BaseHttpBridgeTest extends CamelTestSupport {
                 response.setContentType("text/plain; charset=utf-8");
                 response.setStatus(HttpServletResponse.SC_OK);
                 PrintWriter out = response.getWriter();
-                out.print(request.getQueryString());
+                out.print(serverResponse(request));
                 baseRequest.setHandled(true);
             }
         });
         server.start();
     }
 
-    @AfterClass
-    public static void stopServer() throws Exception {
+    protected abstract String serverResponse(HttpServletRequest request);
+
+    @After
+    public void stopServer() throws Exception {
         if (server == null) return;
         server.stop();
         server = null;
