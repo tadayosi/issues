@@ -54,13 +54,13 @@ public class HttpConsumerTest extends CamelTestSupport {
     public void jetty() throws Exception {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(1);
-        result.expectedHeaderReceived(Exchange.HTTP_PATH, "/aaa+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_QUERY, "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        // @formatter:off
+        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_QUERY,     "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY, null);
-        result.expectedHeaderReceived(Exchange.HTTP_URI,
-                "/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
-        result.expectedHeaderReceived(Exchange.HTTP_URL,
-                "http://localhost:9000/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        result.expectedHeaderReceived(Exchange.HTTP_URI,       "/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        result.expectedHeaderReceived(Exchange.HTTP_URL,       "http://localhost:9000/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        // @formatter:on
 
         Request.Get("http://localhost:9000/camel/" + URI).execute();
         assertMockEndpointsSatisfied();
@@ -70,13 +70,13 @@ public class HttpConsumerTest extends CamelTestSupport {
     public void netty() throws Exception {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(1);
-        result.expectedHeaderReceived(Exchange.HTTP_PATH, "/aaa+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_QUERY, "x=+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY,
-                "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
-        result.expectedHeaderReceived(Exchange.HTTP_URI, "/camel/aaa+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_URL,
-                "http://localhost:9001/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        // @formatter:off
+        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_QUERY,     "x=+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY, "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        result.expectedHeaderReceived(Exchange.HTTP_URI,       "/camel/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_URL,       "http://localhost:9001/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        // @formatter:on
 
         Request.Get("http://localhost:9001/camel/" + URI).execute();
         assertMockEndpointsSatisfied();
@@ -86,13 +86,13 @@ public class HttpConsumerTest extends CamelTestSupport {
     public void netty4() throws Exception {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(1);
-        result.expectedHeaderReceived(Exchange.HTTP_PATH, "/aaa+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_QUERY, "x=+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY,
-                "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
-        result.expectedHeaderReceived(Exchange.HTTP_URI, "/camel/aaa+:/?#[]@!$&'()+,;=");
-        result.expectedHeaderReceived(Exchange.HTTP_URL,
-                "http://localhost:9002/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        // @formatter:off
+        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_QUERY,     "x=+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY, "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        result.expectedHeaderReceived(Exchange.HTTP_URI,       "/camel/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_URL,       "http://localhost:9002/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
+        // @formatter:on
 
         Request.Get("http://localhost:9002/camel/" + URI).execute();
         assertMockEndpointsSatisfied();
