@@ -70,6 +70,7 @@ public abstract class BaseHttpBridgeTest extends CamelTestSupport {
             @Override
             public void handle(String target, org.eclipse.jetty.server.Request baseRequest, HttpServletRequest request,
                     HttpServletResponse response) throws IOException, ServletException {
+                LOG.info("Received URI   = {}", request.getRequestURI());
                 LOG.info("Received path  = {}", request.getPathInfo());
                 LOG.info("Received query = {}", request.getQueryString());
 

@@ -19,7 +19,7 @@ public class HttpBridgePathTest extends BaseHttpBridgeTest {
 
     @Override
     protected String serverResponse(HttpServletRequest request) {
-        return request.getPathInfo().substring("/fred/".length());
+        return request.getRequestURI().substring("/fred/".length());
     }
 
     private static String PATH;

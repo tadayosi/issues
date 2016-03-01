@@ -55,7 +55,7 @@ public class HttpConsumerTest extends CamelTestSupport {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(1);
         // @formatter:off
-        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_QUERY,     "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY, null);
         result.expectedHeaderReceived(Exchange.HTTP_URI,       "/camel/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
@@ -71,7 +71,7 @@ public class HttpConsumerTest extends CamelTestSupport {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(1);
         // @formatter:off
-        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_QUERY,     "x=+:/?#[]@!$&'()+,;=");
         result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY, "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_URI,       "/camel/aaa+:/?#[]@!$&'()+,;=");
@@ -87,7 +87,7 @@ public class HttpConsumerTest extends CamelTestSupport {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(1);
         // @formatter:off
-        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+:/?#[]@!$&'()+,;=");
+        result.expectedHeaderReceived(Exchange.HTTP_PATH,      "/aaa+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_QUERY,     "x=+:/?#[]@!$&'()+,;=");
         result.expectedHeaderReceived(Exchange.HTTP_RAW_QUERY, "x=+%3A%2F%3F%23%5B%5D%40%21%24%26%27%28%29%2B%2C%3B%3D");
         result.expectedHeaderReceived(Exchange.HTTP_URI,       "/camel/aaa+:/?#[]@!$&'()+,;=");
