@@ -25,8 +25,7 @@ public class HttpBridgePathTest extends BaseHttpBridgeTest {
     private static String PATH;
     static {
         try {
-            //PATH = URLEncoder.encode(" :/?#[]@!$", "UTF-8") + "/" + URLEncoder.encode("&'()+,;=", "UTF-8");
-            PATH = URLEncoder.encode("{}<>", "UTF-8");
+            PATH = URLEncoder.encode(" :/?#[]@!$", "UTF-8") + "/" + URLEncoder.encode("&'()+,;={}<>", "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }

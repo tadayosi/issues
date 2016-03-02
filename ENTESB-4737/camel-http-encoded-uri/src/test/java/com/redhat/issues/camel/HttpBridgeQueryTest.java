@@ -25,7 +25,7 @@ public class HttpBridgeQueryTest extends BaseHttpBridgeTest {
     private static final String QUERY;
     static {
         try {
-            QUERY = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;=", "UTF-8");
+            QUERY = "x=" + URLEncoder.encode(" :/?#[]@!$&'()+,;={}<>", "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
