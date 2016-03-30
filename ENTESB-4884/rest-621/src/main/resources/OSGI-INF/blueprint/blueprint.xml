@@ -38,7 +38,8 @@
       - a list of service beans
         in this example, we refer to another bean defined in this Blueprint XML file with a <ref/> element
     -->
-    <jaxrs:server id="customerService" address="/crm">
+    <!-- jaxrs:server id="customerService" address="/crm" -->
+    <jaxrs:server id="customerService" address="http://localhost:9000/crm">
         <jaxrs:serviceBeans>
             <ref component-id="customerSvc"/>
         </jaxrs:serviceBeans>
@@ -46,11 +47,14 @@
            <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
         </jaxrs:providers>
         <jaxrs:features>
+            <!--
             <bean class="io.fabric8.cxf.endpoint.SwaggerFeature">
                 <property name="title" value="Fabric8:CXF:Quickstarts - Customer Service" />
                 <property name="description" value="Sample REST-based Customer Service" />
                 <property name="version" value="${project.version}" />
             </bean>
+            -->
+            <bean class="org.apache.cxf.jaxrs.swagger.SwaggerFeature" />
         </jaxrs:features>
     </jaxrs:server>
  
