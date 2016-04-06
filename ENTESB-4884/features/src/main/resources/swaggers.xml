@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="ENTESB-4884">
+  <feature name="swagger-1.3.4" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle>mvn:org.javassist/javassist/3.18.1-GA</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jackson-module-scala/2.1.5_3</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.4.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.4_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.4_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.4_3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.4_1</bundle>
+  </feature>
+  <feature name="swagger-1.3.5" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle>mvn:org.javassist/javassist/3.18.1-GA</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jackson-module-scala/2.1.5_3</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.4.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.5_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.5_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.5_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.4_1</bundle>
+  </feature>
+  <feature name="swagger-1.3.7" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/15.0</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
+    <bundle>mvn:org.javassist/javassist/3.18.1-GA</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-paranamer/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.10/2.4.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.7_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.7_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.7_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.paranamer/2.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.4_1</bundle>
+  </feature>
+  <feature name="swagger-1.3.8" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/15.0</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
+    <bundle>mvn:org.javassist/javassist/3.18.1-GA</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-paranamer/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.10/2.4.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.8_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.8_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.paranamer/2.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.4_1</bundle>
+  </feature>
+  <feature name="swagger-1.3.10" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/15.0</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
+    <bundle>mvn:org.javassist/javassist/3.18.1-GA</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-paranamer/2.4.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.10/2.4.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.10_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.10_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.10_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.paranamer/2.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.4_1</bundle>
+  </feature>
+  <feature name="swagger-1.3.11" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-reflect/2.10.4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/15.0</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
+    <bundle>mvn:org.javassist/javassist/3.19.0-GA</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-paranamer/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.10/2.6.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.11_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.11_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.11_2</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.paranamer/2.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.10_3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.8_1</bundle>
+  </feature>
+  <feature name="swagger-1.3.12" version="1.0" resolver="(obr)">
+    <feature>http</feature>
+    <feature version="(3.0.1,3.1)">cxf-specs</feature>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-library/2.10.4</bundle>
+    <bundle dependency='true'>mvn:org.scala-lang/scala-reflect/2.10.4</bundle>
+    <bundle dependency='true'>mvn:com.google.guava/guava/15.0</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.javax-inject/1_2</bundle>
+    <bundle>mvn:org.javassist/javassist/3.19.0-GA</bundle>
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-paranamer/2.6.3</bundle>
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-scala_2.10/2.6.3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-annotations/1.3.12_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-core/1.3.12_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.swagger-jaxrs/1.3.12_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.paranamer/2.8_1</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.reflections/0.9.10_3</bundle>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json4s/3.2.8_1</bundle>
+  </feature>
+</features>

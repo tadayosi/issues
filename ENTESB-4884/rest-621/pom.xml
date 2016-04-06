@@ -27,7 +27,7 @@
 
     <groupId>org.jboss.quickstarts.fuse</groupId>
     <artifactId>cxf-rest</artifactId>
-    <version>6.2.1.redhat-084</version>
+    <version>6.2.1.redhat-084_ENTESB-4884</version>
     <packaging>bundle</packaging>
     <name>JBoss Fuse Quickstart: rest</name>
     <description>RESTful WebService Example using JAX-RS with JBoss Fuse</description>
