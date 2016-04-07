@@ -1,0 +1,32 @@
+guava - _ -> 15.0 (mandatory!)
+  - fabric8 (*)
+  - camel
+  - jclouds
+  - karaf
+
+============================================================
+
+javassist - 3.18.1 -> 3.19.0
+  - fabric8 (*)
+  - camel
+  - karaf
+
+jackson-module-scala - 2.1.5_3 (smx) -> 2.4.3
+  - fabric8 (*)
+  - camel
+
+swagger-* - 1.3.2_x -> 1.3.12_1
+  - fabric8 (*)
+  - camel
+
+paranamer - _ -> 2.8_1
+  - fabric8 (*)
+  - camel
+
+reflections - 0.9.8_1 -> 0.9.10_1
+  - fabric8 (*)
+  - camel
+
+json4s - 3.2.4_1 -> 3.2.8_1
+  - fabric8 (*)
+  - camel
