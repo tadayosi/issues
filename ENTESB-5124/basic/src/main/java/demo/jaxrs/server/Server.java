@@ -23,6 +23,7 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
+import org.apache.cxf.jaxrs.provider.json.JSONProvider;
 
 public class Server {
 
@@ -32,6 +33,7 @@ public class Server {
         sf.setResourceProvider(CustomerService.class, 
             new SingletonResourceProvider(new CustomerService()));
         sf.setAddress("http://localhost:9000/");
+        sf.setProvider(new JSONProvider<Object>());
         sf.setProvider(new JacksonJsonProvider());
 
         sf.create();
