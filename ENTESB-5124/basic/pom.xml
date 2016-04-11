@@ -29,7 +29,11 @@
         <relativePath>parent-pom.xml</relativePath>
     </parent>
     <properties>
-        <cxf.version>${project.version}</cxf.version>
+        <!-- cxf.version>3.1.5.redhat-630039</cxf.version -->
+        <!-- cxf.version>3.2.0-SNAPSHOT</cxf.version -->
+        <!-- cxf.version>3.0.9</cxf.version -->
+        <cxf.version>3.0.4.redhat-621084</cxf.version>
+        <jetty.version>8.1.19.v20160209</jetty.version>
         <httpclient.version>3.1</httpclient.version>
     </properties>
     <profiles>
@@ -84,38 +88,80 @@
         <dependency>
             <groupId>com.fasterxml.jackson.jaxrs</groupId>
             <artifactId>jackson-jaxrs-json-provider</artifactId>
-            <version>2.6.3</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.6.3</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jettison</groupId>
             <artifactId>jettison</artifactId>
-            <version>1.3.7</version>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http</artifactId>
-            <version>3.1.5.redhat-630039</version>
+            <version>${cxf.version}</version>
         </dependency>
         <!-- This dependency is needed if you're using the Jetty container -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
-            <version>3.1.5.redhat-630039</version>
+            <version>${cxf.version}</version>
+            <exclusions>
+              <exclusion>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+              </exclusion>
+              <exclusion>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-security</artifactId>
+              </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>3.1.5.redhat-630039</version>
+            <version>${cxf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-extension-providers</artifactId>
-            <version>3.1.5.redhat-630039</version>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>${jetty.version}</version>
+            <exclusions>
+              <exclusion>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+              </exclusion>
+              <exclusion>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-continuation</artifactId>
+              </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-http</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-io</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-continuation</artifactId>
+            <version>${jetty.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-httpclient</groupId>
