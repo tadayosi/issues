@@ -1,8 +1,5 @@
 package com.redhat.issues.scheduled.route;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.camel.Exchange;
 import org.apache.camel.processor.aggregate.CompletionAwareAggregationStrategy;
 import org.apache.camel.processor.aggregate.TimeoutAwareAggregationStrategy;
@@ -10,6 +7,7 @@ import org.apache.camel.processor.aggregate.TimeoutAwareAggregationStrategy;
 public class SampleAggregationStrategy implements TimeoutAwareAggregationStrategy, CompletionAwareAggregationStrategy {
 
     private static final String PROPERTY_COMPLETED = "completed";
+    private static final String INDENT = "    ";
 
     private boolean started = false;
 
@@ -17,16 +15,13 @@ public class SampleAggregationStrategy implements TimeoutAwareAggregationStrateg
     public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
         if (oldExchange == null || !started) {
             started = true;
-            List<String> body = new ArrayList<>();
-            body.add(newExchange.getIn().getBody(String.class));
-            newExchange.getIn().setBody(body);
+            newExchange.getIn().setBody(INDENT + newExchange.getIn().getBody(String.class));
             return newExchange;
         }
 
-        @SuppressWarnings("unchecked")
-        List<String> body = oldExchange.getIn().getBody(List.class);
-        body.add(newExchange.getIn().getBody(String.class));
-        if (body.size() >= 10) {
+        String oldBody = oldExchange.getIn().getBody(String.class);
+        oldExchange.getIn().setBody(oldBody + "\n" + INDENT + newExchange.getIn().getBody());
+        if (oldExchange.getIn().getBody(String.class).split("\n").length >= 10) {
             completed(oldExchange);
         }
         return oldExchange;
