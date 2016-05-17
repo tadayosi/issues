@@ -61,6 +61,12 @@
       <version>${version.camel}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-client</artifactId>
+      <version>${version.activemq}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -108,6 +114,16 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <!-- run -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <mainClass>com.redhat.issues.scheduled.route.TestClient</mainClass>
+          <classpathScope>test</classpathScope>
+        </configuration>
       </plugin>
     </plugins>
   </build>
