@@ -16,14 +16,17 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <version.camel>2.15.1.redhat-620133</version.camel>
+    <version.activemq>5.11.0.redhat-620133</version.activemq>
+    <version.fabric>1.2.0.redhat-621084</version.fabric>
     <!--
     <version.camel>2.15.1.redhat-621084</version.camel>
     <version.activemq>5.11.0.redhat-621084</version.activemq>
     <version.fabric>1.2.0.redhat-621084</version.fabric>
+    <version.camel>2.17.0.redhat-630073</version.camel>
+    <version.activemq>5.11.0.redhat-630073</version.activemq>
+    <version.fabric>1.2.0.redhat-630073</version.fabric>
     -->
-    <version.camel>2.17.0.redhat-630067</version.camel>
-    <version.activemq>5.11.0.redhat-630067</version.activemq>
-    <version.fabric>1.2.0.redhat-630067</version.fabric>
     <!-- fabric8 deploy profile configuration -->
     <fabric8.profile>issue-scheduled-route</fabric8.profile>
     <fabric8.parentProfiles>default</fabric8.parentProfiles>

@@ -8,7 +8,7 @@ import org.apache.camel.spi.ShutdownStrategy;
 
 public class SampleRouteBuilder extends RouteBuilder {
 
-    private static final String CRON_SCHEDULE = "* 0/1 * * * ?";
+    private static final String CRON_SCHEDULE = "0/30 * * * * ?";
     private static final long SHUTDOWN_TIMEOUT = 1000;
     private static final long COMPLETION_TIMEOUT = 3000;
 
@@ -22,8 +22,8 @@ public class SampleRouteBuilder extends RouteBuilder {
         startPolicy.setRouteStartTime(CRON_SCHEDULE);
 
         // @formatter:off
-        from("activemq:queue:TEST?transacted=true")
-        //from("master:sample-scheduled-route:activemq:queue:TEST?transacted=true")
+        //from("activemq:queue:TEST?transacted=true")
+        from("master:sample-scheduled-route:activemq:queue:TEST?transacted=true")
             .routeId("Sample_1_Consumer")
             .routePolicy(startPolicy).noAutoStartup()
             .to("direct:aggregator");

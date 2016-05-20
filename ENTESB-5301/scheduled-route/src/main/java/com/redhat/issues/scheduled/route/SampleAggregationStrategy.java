@@ -21,7 +21,7 @@ public class SampleAggregationStrategy implements TimeoutAwareAggregationStrateg
 
         String oldBody = oldExchange.getIn().getBody(String.class);
         oldExchange.getIn().setBody(oldBody + "\n" + INDENT + newExchange.getIn().getBody());
-        if (oldExchange.getIn().getBody(String.class).split("\n").length >= 10) {
+        if (oldExchange.getIn().getBody(String.class).split("\n").length >= 100) {
             completed(oldExchange);
         }
         return oldExchange;

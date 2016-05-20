@@ -28,7 +28,7 @@ public class TestClient implements MessageListener {
     private static final String QUEUE_PROPERTY_OUT = "test.queue.out";
 
     private static final long MESSAGE_INTERVAL = 5 * 1000;
-    private static final int MESSAGE_COUNT = 10;
+    private static final int MESSAGE_COUNT = 100;
 
     private Destination in;
 
