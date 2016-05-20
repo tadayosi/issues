@@ -8,6 +8,7 @@ import org.apache.camel.spi.ShutdownStrategy;
 
 public class SampleRouteBuilder extends RouteBuilder {
 
+    private static final String CRON_SCHEDULE = "* 0/1 * * * ?";
     private static final long SHUTDOWN_TIMEOUT = 1000;
     private static final long COMPLETION_TIMEOUT = 3000;
 
@@ -18,10 +19,12 @@ public class SampleRouteBuilder extends RouteBuilder {
         shutdownStrategy.setTimeout(SHUTDOWN_TIMEOUT);
 
         CronScheduledRoutePolicy startPolicy = new CronScheduledRoutePolicy();
-        startPolicy.setRouteStartTime("0/15 * * * * ?");
+        startPolicy.setRouteStartTime(CRON_SCHEDULE);
 
         // @formatter:off
-        from("activemq:queue:TEST?transacted=true").routeId("Sample_1_Consumer")
+        from("activemq:queue:TEST?transacted=true")
+        //from("master:sample-scheduled-route:activemq:queue:TEST?transacted=true")
+            .routeId("Sample_1_Consumer")
             .routePolicy(startPolicy).noAutoStartup()
             .to("direct:aggregator");
 
@@ -31,12 +34,9 @@ public class SampleRouteBuilder extends RouteBuilder {
                 .completionPredicate(simple("${exchangeProperty.completed} == true"))
             .toF("controlbus:route?routeId=%s&action=stop&async=true", "Sample_1_Consumer")
             .delay(SHUTDOWN_TIMEOUT)
-            .to("direct:output");
-
-        from("direct:output").routeId("Sample_3_Output")
-            .delay(5000)
             .log("OUT: ******************************\n${body}")
-            .log("***********************************");
+            .log("***********************************")
+            .to("activemq:queue:TEST-out");
         // @formatter:on
     }
 }

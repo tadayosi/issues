@@ -16,14 +16,34 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <!--
     <version.camel>2.15.1.redhat-621084</version.camel>
     <version.activemq>5.11.0.redhat-621084</version.activemq>
+    <version.fabric>1.2.0.redhat-621084</version.fabric>
+    -->
+    <version.camel>2.17.0.redhat-630067</version.camel>
+    <version.activemq>5.11.0.redhat-630067</version.activemq>
+    <version.fabric>1.2.0.redhat-630067</version.fabric>
+    <!-- fabric8 deploy profile configuration -->
+    <fabric8.profile>issue-scheduled-route</fabric8.profile>
+    <fabric8.parentProfiles>default</fabric8.parentProfiles>
+    <fabric8.features>camel-quartz2 activemq-camel</fabric8.features>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
+      <version>${version.camel}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core-osgi</artifactId>
+      <version>${version.camel}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-blueprint</artifactId>
       <version>${version.camel}</version>
     </dependency>
     <dependency>
@@ -114,6 +134,12 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <!-- deploy -->
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>${version.fabric}</version>
       </plugin>
       <!-- run -->
       <plugin>

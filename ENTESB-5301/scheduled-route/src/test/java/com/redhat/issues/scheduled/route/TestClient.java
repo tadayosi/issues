@@ -27,8 +27,8 @@ public class TestClient implements MessageListener {
     private static final String QUEUE_PROPERTY_IN = "test.queue.in";
     private static final String QUEUE_PROPERTY_OUT = "test.queue.out";
 
-    private static final long MESSAGE_INTERVAL = 10 * 1000;
-    private static final int MESSAGE_COUNT = 1000;
+    private static final long MESSAGE_INTERVAL = 5 * 1000;
+    private static final int MESSAGE_COUNT = 10;
 
     private Destination in;
 
@@ -59,7 +59,7 @@ public class TestClient implements MessageListener {
     private static String queueNameOut() {
         String name = System.getProperty(QUEUE_PROPERTY_OUT);
         if (name != null) return name;
-        return DEFAULT_QUEUE;
+        return DEFAULT_QUEUE + "-out";
     }
 
     public void send(int messageCount) throws JMSException {
