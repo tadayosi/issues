@@ -13,6 +13,10 @@ Run JBoss Fuse and in the karaf console run the following command:
 
 ## To run
 
-In the karaf console create test messages on the `TEST` queue:
+Run:
+
+    $ mvn exec:java
+
+or in the karaf console create test messages on the `TEST` queue:
 
     JBossFuse:karaf@root> activemq:producer --user admin --password admin
