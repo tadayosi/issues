@@ -8,7 +8,7 @@ import org.apache.camel.spi.ShutdownStrategy;
 
 public class SampleRouteBuilder extends RouteBuilder {
 
-    private static final String CRON_SCHEDULE = "0/30 * * * * ?";
+    private static final String CRON_SCHEDULE = "0/20 * * * * ?";
     private static final long SHUTDOWN_TIMEOUT = 1000;
     private static final long COMPLETION_TIMEOUT = 3000;
 
