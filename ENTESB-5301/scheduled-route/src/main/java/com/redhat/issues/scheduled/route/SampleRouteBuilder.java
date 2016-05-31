@@ -9,8 +9,9 @@ import org.apache.camel.spi.ShutdownStrategy;
 public class SampleRouteBuilder extends RouteBuilder {
 
     private static final String CRON_SCHEDULE = "0/20 * * * * ?";
-    private static final long SHUTDOWN_TIMEOUT = 1000;
-    private static final long COMPLETION_TIMEOUT = 3000;
+    //private static final String CRON_SCHEDULE = "0 0 * * * ?";
+    private static final long SHUTDOWN_TIMEOUT = 1 * 1000;
+    private static final long COMPLETION_TIMEOUT = 3 * 1000;
 
     @Override
     public void configure() {
@@ -34,6 +35,7 @@ public class SampleRouteBuilder extends RouteBuilder {
                 .completionPredicate(simple("${exchangeProperty.completed} == true"))
             .toF("controlbus:route?routeId=%s&action=stop&async=true", "Sample_1_Consumer")
             .delay(SHUTDOWN_TIMEOUT)
+            //.delay(1)
             .log("OUT: ******************************\n${body}")
             .log("***********************************")
             .to("activemq:queue:TEST-out");

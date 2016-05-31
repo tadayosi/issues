@@ -30,7 +30,7 @@
     <!-- fabric8 deploy profile configuration -->
     <fabric8.profile>issue-scheduled-route</fabric8.profile>
     <fabric8.parentProfiles>default</fabric8.parentProfiles>
-    <fabric8.features>camel-quartz2 activemq-camel</fabric8.features>
+    <fabric8.features>camel-quartz2 activemq-camel fabric-zookeeper-commands</fabric8.features>
   </properties>
 
   <dependencies>
@@ -38,26 +38,31 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
       <version>${version.camel}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core-osgi</artifactId>
       <version>${version.camel}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-blueprint</artifactId>
       <version>${version.camel}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-quartz2</artifactId>
       <version>${version.camel}</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-camel</artifactId>
       <version>${version.activemq}</version>
+      <scope>provided</scope>
     </dependency>
 
     <!-- logging -->
