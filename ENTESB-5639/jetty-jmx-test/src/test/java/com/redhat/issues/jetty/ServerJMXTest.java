@@ -2,6 +2,7 @@ package com.redhat.issues.jetty;
 
 import org.eclipse.jetty.jmx.MBeanContainer;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
 import org.junit.Test;
 
 import javax.management.MBeanServer;
@@ -22,7 +23,8 @@ public class ServerJMXTest {
 
     @Test
     public void jettyJMX() throws Exception {
-        Server server = new Server(18080);
+        Server server = new Server();
+        setupConnector(server, 18080);
         for (Object bean : server.getBeans()) {
             System.out.println(bean);
         }
@@ -34,12 +36,19 @@ public class ServerJMXTest {
             List<ObjectInstance> mbeans = queryMBeans();
             assertThat(mbeans.isEmpty()).isFalse();
         } finally {
-            server.stop();
             server.removeBean(mBeanContainer);
-            //server.destroy();
+            //server.removeBean(new MBeanContainer(mBeanServer));
+            server.stop();
+            server.destroy();
         }
         List<ObjectInstance> mbeans = queryMBeans();
         assertThat(mbeans.isEmpty()).isTrue();
+    }
+
+    private void setupConnector(Server server, int port) {
+        ServerConnector connector = new ServerConnector(server);
+        connector.setPort(port);
+        server.addConnector(connector);
     }
 
     private List<ObjectInstance> queryMBeans() throws MalformedObjectNameException {
