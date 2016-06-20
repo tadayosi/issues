@@ -37,6 +37,7 @@ public class ServerJMXTest {
             assertThat(mbeans.isEmpty()).isFalse();
         } finally {
             server.removeBean(mBeanContainer);
+            mBeanContainer.destroy();
             //server.removeBean(new MBeanContainer(mBeanServer));
             server.stop();
             server.destroy();
