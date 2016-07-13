@@ -7,7 +7,7 @@
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd">
 
-    <jee:jndi-lookup id="myDS" jndi-name="java:jboss/datasources/myDS"/>
+    <jee:jndi-lookup id="ExampleDS" jndi-name="java:jboss/datasources/ExampleDS"/>
 
     <camelContext id="spring-context" xmlns="http://camel.apache.org/schema/spring">
         <route>
