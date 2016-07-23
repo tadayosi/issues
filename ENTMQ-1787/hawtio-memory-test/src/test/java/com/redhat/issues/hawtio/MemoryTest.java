@@ -46,16 +46,16 @@ public class MemoryTest {
 
     @Test
     public void run() throws Exception {
-        int round = 2 * 10;
+        int round = 4 * 60;
         //int round = 1;
         for (int i = 1; i <= round; i++) {
             LOG.info("Round {} / {}", i, round);
             driver.get(HAWTIO_URL + "/#/jmx/attributes");
-            sleep(10);
+            sleep(5);
             driver.get(HAWTIO_URL + "/#/logs");
-            sleep(10);
+            sleep(5);
             driver.get(HAWTIO_URL + "/#/osgi/bundles");
-            sleep(10);
+            sleep(5);
         }
     }
 
