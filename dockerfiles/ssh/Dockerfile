@@ -4,7 +4,7 @@ USER root
 
 # ssh
 RUN yum -y update; yum clean all
-RUN yum -y install openssh-server; yum clean all
+RUN yum -y install openssh-server openssh-clients; yum clean all
 RUN mkdir /var/run/sshd
 
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
