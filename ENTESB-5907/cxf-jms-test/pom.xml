@@ -14,7 +14,9 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <!-- <version.fuse>6.3.0.redhat-157</version.fuse> -->
-    <version.fuse>6.2.1.redhat-084</version.fuse>
+    <!-- <version.fuse>6.2.1.redhat-084</version.fuse> -->
+    <!-- <version.fuse>6.1.1.redhat-412</version.fuse> -->
+    <version.fuse>6.1.0.redhat-379</version.fuse>
   </properties>
 
   <dependencyManagement>
@@ -43,18 +45,23 @@
       <artifactId>activemq-client</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-transports-http-jetty</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
     </dependency>
+    <!--
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jms</artifactId>
     </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-    </dependency>
+    -->
 
     <!-- logging -->
     <dependency>

@@ -13,6 +13,7 @@ public class Server {
 
     public static final String QUEUE_REQUEST = "sample.ws.greeting.request";
     public static final String QUEUE_RESPONSE = "sample.ws.greeting.response";
+    public static final String QUEUE_RESPONSE_2 = "sample.ws.greeting.response2";
 
     public static final String BROKER_URL = "tcp://localhost:61616";
 
@@ -48,8 +49,8 @@ public class Server {
         config.setRequestURI(QUEUE_REQUEST);
         config.setConnectionFactory(connectionFactory());
         config.setTargetDestination(QUEUE_REQUEST);
-        //config.setReplyToDestination(Server.QUEUE_RESPONSE);
-        //config.setReplyDestination(Server.QUEUE_RESPONSE);
+        //config.setReplyDestination(QUEUE_RESPONSE);
+        //config.setReplyToDestination(QUEUE_RESPONSE_2);
         return config;
     }
 

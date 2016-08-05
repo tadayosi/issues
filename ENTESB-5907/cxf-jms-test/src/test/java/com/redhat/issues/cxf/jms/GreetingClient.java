@@ -4,6 +4,7 @@ import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.transport.jms.JMSConfigFeature;
+import org.apache.cxf.transport.jms.JMSConfiguration;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,8 +36,9 @@ public class GreetingClient {
 
     private JMSConfigFeature jmsConfigFeature() {
         JMSConfigFeature feature = Server.jmsConfigFeature();
-        //feature.getJmsConfig().setReplyToDestination(Server.QUEUE_RESPONSE);
-        feature.getJmsConfig().setReplyDestination(Server.QUEUE_RESPONSE);
+        JMSConfiguration config = feature.getJmsConfig();
+        config.setReplyDestination(Server.QUEUE_RESPONSE);
+        config.setReplyToDestination(Server.QUEUE_RESPONSE_2);
         return feature;
     }
 
