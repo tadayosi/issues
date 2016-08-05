@@ -3,6 +3,7 @@ package com.redhat.issues.cxf.jms;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.transport.jms.JMSConfigFeature;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,8 +29,15 @@ public class GreetingClient {
         factory.getOutInterceptors().add(new LoggingOutInterceptor());
         factory.setServiceClass(GreetingService.class);
         factory.setAddress("jms://");
-        factory.getFeatures().add(Server.jmsConfigFeature());
+        factory.getFeatures().add(jmsConfigFeature());
         return factory;
+    }
+
+    private JMSConfigFeature jmsConfigFeature() {
+        JMSConfigFeature feature = Server.jmsConfigFeature();
+        //feature.getJmsConfig().setReplyToDestination(Server.QUEUE_RESPONSE);
+        feature.getJmsConfig().setReplyDestination(Server.QUEUE_RESPONSE);
+        return feature;
     }
 
 }

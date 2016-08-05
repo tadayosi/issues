@@ -11,10 +11,10 @@ import javax.jms.ConnectionFactory;
 
 public class Server {
 
-    private static final String QUEUE_REQUEST = "sample.ws.greeting.request";
-    private static final String QUEUE_RESPONSE = "sample.ws.greeting.response";
+    public static final String QUEUE_REQUEST = "sample.ws.greeting.request";
+    public static final String QUEUE_RESPONSE = "sample.ws.greeting.response";
 
-    private static final String BROKER_URL = "tcp://localhost:61616";
+    public static final String BROKER_URL = "tcp://localhost:61616";
 
     public static void main(String[] args) {
         try {
@@ -48,6 +48,8 @@ public class Server {
         config.setRequestURI(QUEUE_REQUEST);
         config.setConnectionFactory(connectionFactory());
         config.setTargetDestination(QUEUE_REQUEST);
+        //config.setReplyToDestination(Server.QUEUE_RESPONSE);
+        //config.setReplyDestination(Server.QUEUE_RESPONSE);
         return config;
     }
 
