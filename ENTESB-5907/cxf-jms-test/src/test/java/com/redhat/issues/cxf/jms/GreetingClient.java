@@ -8,6 +8,10 @@ import org.apache.cxf.transport.jms.JMSConfiguration;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import javax.xml.ws.soap.SOAPFaultException;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -16,9 +20,18 @@ public class GreetingClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GreetingClient.class);
 
-    @Test
+    @Test(expected = SOAPFaultException.class)
     public void invoke() {
         GreetingService client = (GreetingService) proxyFactory().create();
+        String message = client.hello("GreetingClient");
+        LOGGER.info(message);
+        assertThat(message, is("Hello, GreetingClient!"));
+    }
+
+    @Test(expected = SOAPFaultException.class)
+    public void invoke_spring() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:client.xml");
+        GreetingService client = (GreetingService) context.getBean("greetingClient");
         String message = client.hello("GreetingClient");
         LOGGER.info(message);
         assertThat(message, is("Hello, GreetingClient!"));
@@ -35,10 +48,12 @@ public class GreetingClient {
     }
 
     private JMSConfigFeature jmsConfigFeature() {
-        JMSConfigFeature feature = Server.jmsConfigFeature();
-        JMSConfiguration config = feature.getJmsConfig();
+        JMSConfigFeature feature = new JMSConfigFeature();
+        JMSConfiguration config = Server.jmsConfiguration();
+        config.setReceiveTimeout(1000L);
         config.setReplyDestination(Server.QUEUE_RESPONSE);
         config.setReplyToDestination(Server.QUEUE_RESPONSE_2);
+        feature.setJmsConfig(config);
         return feature;
     }
 

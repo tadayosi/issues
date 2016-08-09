@@ -38,13 +38,13 @@ public class Server {
         return factory;
     }
 
-    public static JMSConfigFeature jmsConfigFeature() {
+    private static JMSConfigFeature jmsConfigFeature() {
         JMSConfigFeature feature = new JMSConfigFeature();
         feature.setJmsConfig(jmsConfiguration());
         return feature;
     }
 
-    private static JMSConfiguration jmsConfiguration() {
+    public static JMSConfiguration jmsConfiguration() {
         JMSConfiguration config = new JMSConfiguration();
         config.setRequestURI(QUEUE_REQUEST);
         config.setConnectionFactory(connectionFactory());

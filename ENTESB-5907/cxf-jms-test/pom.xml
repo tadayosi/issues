@@ -13,12 +13,27 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+
     <!-- <version.fuse>6.3.0.redhat-157</version.fuse> -->
     <!-- <version.fuse>6.2.1.redhat-084</version.fuse> -->
     <!-- <version.fuse>6.1.1.redhat-412</version.fuse> -->
-    <version.fuse>6.1.0.redhat-379</version.fuse>
+    <!-- <version.fuse>6.1.0.redhat-379</version.fuse> -->
+
+    <!-- Reproducible versions -->
+    <version.cxf>3.1.7</version.cxf>
+    <!-- <version.cxf>3.0.10</version.cxf> -->
+    <!-- <version.cxf>2.7.11</version.cxf> -->
+
+    <!-- Working versions -->
+    <!-- <version.cxf>2.7.18</version.cxf> -->
+    <!-- <version.cxf>2.7.6</version.cxf> -->
+    <!-- <version.cxf>2.4.10</version.cxf> -->
+
+    <version.spring>3.2.16.RELEASE</version.spring>
+    <version.activemq>5.13.3</version.activemq>
   </properties>
 
+  <!--
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -30,51 +45,72 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  -->
 
   <dependencies>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-frontend-jaxws</artifactId>
+      <version>${version.cxf}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-frontend-simple</artifactId>
+      <version>${version.cxf}</version>
+    </dependency>
+    <!-- For CXF 2.x only
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-core</artifactId>
+      <version>${version.cxf}</version>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-transports-jms</artifactId>
+      <version>${version.cxf}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-client</artifactId>
+      <version>${version.activemq}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-transports-http</artifactId>
+      <version>${version.cxf}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-transports-http-jetty</artifactId>
+      <version>${version.cxf}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
+      <version>${version.spring}</version>
     </dependency>
-    <!--
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jms</artifactId>
+      <version>${version.spring}</version>
     </dependency>
-    -->
 
     <!-- logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
+      <version>1.7.21</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.21</version>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
     </dependency>
 
     <!-- test -->
@@ -82,6 +118,7 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
+      <version>4.12</version>
     </dependency>
     <dependency>
       <groupId>org.hamcrest</groupId>

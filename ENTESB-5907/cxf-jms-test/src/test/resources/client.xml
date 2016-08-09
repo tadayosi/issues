@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cxf="http://cxf.apache.org/core" xmlns:jaxws="http://cxf.apache.org/jaxws"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+    http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+  <cxf:bus>
+    <cxf:features>
+      <cxf:logging />
+    </cxf:features>
+  </cxf:bus>
+
+  <bean id="jmsConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+    <property name="targetConnectionFactory">
+      <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616" />
+        <property name="userName" value="admin" />
+        <property name="password" value="admin" />
+      </bean>
+    </property>
+  </bean>
+
+  <bean id="jmsConfig" class="org.apache.cxf.transport.jms.JMSConfiguration">
+    <property name="connectionFactory" ref="jmsConnectionFactory" />
+    <property name="receiveTimeout" value="1000" />
+    <property name="targetDestination" value="sample.ws.greeting.request" />
+    <property name="replyDestination" value="sample.ws.greeting.response" />
+    <property name="replyToDestination" value="sample.ws.greeting.response2" />
+  </bean>
+
+  <jaxws:client id="greetingClient"
+    address="jms://"
+    serviceClass="com.redhat.issues.cxf.jms.GreetingService">
+    <jaxws:features>
+      <bean class="org.apache.cxf.feature.LoggingFeature" />
+      <bean class="org.apache.cxf.transport.jms.JMSConfigFeature">
+        <property name="jmsConfig" ref="jmsConfig" />
+      </bean>
+    </jaxws:features>
+  </jaxws:client>
+
+</beans>
