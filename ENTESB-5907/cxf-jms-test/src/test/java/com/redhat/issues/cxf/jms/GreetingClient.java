@@ -32,9 +32,9 @@ public class GreetingClient {
     public void invoke_spring() {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:client.xml");
         GreetingService client = (GreetingService) context.getBean("greetingClient");
-        String message = client.hello("GreetingClient");
+        String message = client.hello("GreetingClient (Spring)");
         LOGGER.info(message);
-        assertThat(message, is("Hello, GreetingClient!"));
+        assertThat(message, is("Hello, GreetingClient (Spring)!"));
     }
 
     private JaxWsProxyFactoryBean proxyFactory() {
