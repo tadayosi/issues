@@ -1,8 +1,6 @@
 package com.redhat.issues.cxf.jms;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.cxf.interceptor.LoggingInInterceptor;
-import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.apache.cxf.transport.jms.JMSConfigFeature;
 import org.apache.cxf.transport.jms.JMSConfiguration;
@@ -32,8 +30,8 @@ public class Server {
         factory.setServiceClass(GreetingService.class);
         factory.setAddress("jms://");
         factory.setServiceBean(service);
-        factory.getInInterceptors().add(new LoggingInInterceptor());
-        factory.getOutInterceptors().add(new LoggingOutInterceptor());
+        //factory.getInInterceptors().add(new LoggingInInterceptor());
+        //factory.getOutInterceptors().add(new LoggingOutInterceptor());
         factory.getFeatures().add(jmsConfigFeature());
         return factory;
     }
