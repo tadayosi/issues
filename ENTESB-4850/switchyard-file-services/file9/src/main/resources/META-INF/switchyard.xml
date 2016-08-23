@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+  xmlns:camel="urn:switchyard-component-camel-core:config:1.0" xmlns:bean="urn:switchyard-component-bean:config:1.0">
+  <sca:composite name="file9" targetNamespace="urn:com.redhat.issues.switchyard:file9:1.0">
+    <sca:service name="GreetingService" promote="GreetingService/GreetingService">
+      <camel:binding.uri name="hello" configURI="file:///tmp/issues?sorter=#sampleSorter">
+        <operationSelector operationName="hello" />
+      </camel:binding.uri>
+    </sca:service>
+    <sca:component name="GreetingService">
+      <bean:implementation.bean class="com.redhat.issues.switchyard.file9.GreetingServiceImpl" />
+      <sca:service name="GreetingService">
+        <sca:interface.java interface="com.redhat.issues.switchyard.file9.GreetingService" />
+      </sca:service>
+    </sca:component>
+  </sca:composite>
+</switchyard>
