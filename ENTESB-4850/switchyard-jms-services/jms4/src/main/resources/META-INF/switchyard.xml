@@ -5,7 +5,7 @@
     <sca:service name="GreetingService" promote="GreetingService/GreetingService">
       <jms:binding.jms name="hello">
         <jms:queue>issues.hello4</jms:queue>
-        <jms:connectionFactory>#ConnectionFactory</jms:connectionFactory>
+        <jms:connectionFactory>#PoolingConnectionFactory</jms:connectionFactory>
       </jms:binding.jms>
     </sca:service>
     <sca:component name="GreetingService">
