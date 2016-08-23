@@ -14,6 +14,9 @@ Samples and reproducers for various projects.
 
 ## SwitchYard
 
+- [ENTESB-4850/switchyard-jms-services](ENTESB-4850/switchyard-jms-services)
+- [ENTESB-4850/switchyard-file-services](ENTESB-4850/switchyard-file-services)
+
 ## Other
 
 - [ENTESB-4889/xalan-tests](https://github.com/tadayosi/xalan-tests)
