@@ -1,4 +1,4 @@
-package com.redhat.issues.switchyard.jms9;
+package com.redhat.issues.switchyard.jms2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +8,12 @@ import javax.inject.Named;
 import javax.jms.ConnectionFactory;
 import javax.naming.InitialContext;
 
-public class PoolingConnectionFactory {
+public class PollingConnectionFactory {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PoolingConnectionFactory.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PollingConnectionFactory.class);
 
     @Produces
-    @Named("PoolingConnectionFactory")
+    @Named("PollingConnectionFactory")
     public ConnectionFactory create() {
         // Try 10 times
         for (int i = 0; i < 60; i++) {
