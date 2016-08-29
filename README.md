@@ -4,6 +4,8 @@ Samples and reproducers for various projects.
 
 ## Camel
 
+- [ENTESB-4850/camel-jms-routes](ENTESB-4850/camel-jms-routes)
+
 ## Karaf
 
 ## CXF

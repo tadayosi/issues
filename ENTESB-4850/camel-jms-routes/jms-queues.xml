@@ -1,0 +1,27 @@
+                    <jms-queue name="issues.hello1">
+                        <entry name="issues.hello1"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello2">
+                        <entry name="issues.hello2"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello3">
+                        <entry name="issues.hello3"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello4">
+                        <entry name="issues.hello4"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello5">
+                        <entry name="issues.hello5"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello6">
+                        <entry name="issues.hello6"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello7">
+                        <entry name="issues.hello7"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello8">
+                        <entry name="issues.hello8"/>
+                    </jms-queue>
+                    <jms-queue name="issues.hello9">
+                        <entry name="issues.hello9"/>
+                    </jms-queue>
