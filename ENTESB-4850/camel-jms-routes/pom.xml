@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.wildfly.camel</groupId>
     <artifactId>wildfly-camel</artifactId>
-    <version>2.4.0.redhat-630131</version>
+    <version>2.4.0.redhat-630175</version>
   </parent>
   <groupId>com.redhat.issues</groupId>
   <artifactId>camel-jms-routes</artifactId>
@@ -28,7 +28,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.wildfly.camel>2.4.0.redhat-630131</version.wildfly.camel>
+    <version.wildfly.camel>2.4.0.redhat-630175</version.wildfly.camel>
   </properties>
 
   <dependencies>
