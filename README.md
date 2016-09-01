@@ -10,6 +10,7 @@ Samples and reproducers for various projects.
 
 ## CXF
 
+- [ENTESB-5856/cxf-rest-async](ENTESB-5856/cxf-rest-async)
 - [ENTESB-5907/cxf-jms-test](ENTESB-5907/cxf-jms-test)
 
 ## Hawtio
