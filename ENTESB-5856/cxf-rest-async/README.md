@@ -12,4 +12,4 @@ The issue is not reproducible with this sample.
 
 2. Request an URL including `%20` to the server:
 
-        $ curl http://localhost:9000/greeting/hello/Kayoko%20Ann%20Patterson && echo
+        $ curl http://localhost:9000/greeting/hello/Kayoko%20Ann%20Patterson

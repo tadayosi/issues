@@ -34,7 +34,7 @@ public class GreetingService {
                 return null;
             } else {
                 LOGGER.info("[Resumed] name = {}", name);
-                return String.format("Hello, %s!", name);
+                return String.format("Hello, %s!\n", name);
             }
         }
     }
