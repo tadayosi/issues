@@ -2,8 +2,6 @@
 
 <https://issues.jboss.org/browse/ENTESB-5856>
 
-The issue is not reproducible with this sample.
-
 ## How to run
 
 1. Run the server:

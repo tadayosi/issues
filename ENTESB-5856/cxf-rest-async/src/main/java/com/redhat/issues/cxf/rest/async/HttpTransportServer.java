@@ -3,7 +3,7 @@ package com.redhat.issues.cxf.rest.async;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 
-public class Server {
+public class HttpTransportServer {
 
     public static final String ADDRESS = "http://localhost:9000/";
 

@@ -16,6 +16,7 @@
 
     <version.cxf>3.1.7</version.cxf>
     <!-- <version.cxf>3.0.10</version.cxf> -->
+    <version.jetty>9.2.15.v20160210</version.jetty>
   </properties>
 
   <dependencies>
@@ -33,6 +34,11 @@
       <groupId>org.apache.cxf</groupId>
       <artifactId>cxf-rt-transports-http-jetty</artifactId>
       <version>${version.cxf}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>${version.jetty}</version>
     </dependency>
 
     <!-- logging -->
@@ -85,7 +91,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.5.0</version>
         <configuration>
-          <mainClass>com.redhat.issues.cxf.rest.async.Server</mainClass>
+          <mainClass>com.redhat.issues.cxf.rest.async.ServletTransportServer</mainClass>
           <classpathScope>test</classpathScope>
         </configuration>
       </plugin>
