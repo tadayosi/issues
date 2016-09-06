@@ -23,3 +23,5 @@ Samples and reproducers for various projects.
 ## Other
 
 - [ENTESB-4889/xalan-tests](https://github.com/tadayosi/xalan-tests)
+- [ENTESB-5639/jetty-jmx-test](ENTESB-5639/jetty-jmx-test)
+- [ENTESB-5856/jetty-continuation-test](ENTESB-5856/jetty-continuation-test)
