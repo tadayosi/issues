@@ -2,11 +2,10 @@
 
 <https://issues.jboss.org/browse/ENTESB-5856>
 
-The issue is not reproducible with this test.
-
 ## How to run
 
-1. Run the test
+Run the test:
 
-        $ mvn clean test
+    $ mvn clean test
 
+and you will see the test fails.
