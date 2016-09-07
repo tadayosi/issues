@@ -36,6 +36,7 @@ public class ContinuationTest {
         ServletHandler handler = new ServletHandler();
         server.setHandler(handler);
         handler.addServletWithMapping(new ServletHolder(new HelloServlet()), "/hello/*");
+        handler.addServletWithMapping(new ServletHolder(new HelloServlet2()), "/hello2/*");
         handler.addServletWithMapping(new ServletHolder(new HelloJettyServlet()), "/hello-jetty/*");
         server.start();
     }
@@ -47,9 +48,17 @@ public class ContinuationTest {
     }
 
     @Test
-    public void servlet() throws Exception {
+    public void servlet_ok() throws Exception {
         String response = Request
             .Get("http://localhost:18080/hello/Kayoko%20Ann%20Patterson")
+            .execute().returnContent().asString();
+        assertThat(response).isEqualTo("Hello, Kayoko%20Ann%20Patterson!");
+    }
+
+    @Test
+    public void servlet_fail() throws Exception {
+        String response = Request
+            .Get("http://localhost:18080/hello2/Kayoko%20Ann%20Patterson")
             .execute().returnContent().asString();
         assertThat(response).isEqualTo("Hello, Kayoko%20Ann%20Patterson!");
     }
@@ -68,7 +77,8 @@ public class ContinuationTest {
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             if (!started) {
                 LOG.info("Initial");
-                final AsyncContext context = req.startAsync(req, resp);
+                final AsyncContext context = startAsync(req, resp);
+                LOG.info("OriginalRequestAndResponse = {}", context.hasOriginalRequestAndResponse());
                 context.addListener(new AsyncListener() {
                     @Override
                     public void onTimeout(AsyncEvent event) throws IOException {
@@ -92,6 +102,17 @@ public class ContinuationTest {
             }
             LOG.info("RequestURI = {}", req.getRequestURI());
             LOG.info("RequestURL = {}", req.getRequestURL());
+        }
+
+        protected AsyncContext startAsync(HttpServletRequest req, HttpServletResponse resp) {
+            return req.startAsync();
+        }
+    }
+
+    static class HelloServlet2 extends HelloServlet {
+        @Override
+        protected AsyncContext startAsync(HttpServletRequest req, HttpServletResponse resp) {
+            return req.startAsync(req, resp);
         }
     }
 
