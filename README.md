@@ -4,6 +4,7 @@ Samples and reproducers for various projects.
 
 ## Camel
 
+- [ENTESB-4737/camel-http-encoded-uri](ENTESB-4737/camel-http-encoded-uri)
 - [ENTESB-4850/camel-jms-routes](ENTESB-4850/camel-jms-routes)
 - [ENTESB-5301/scheduled-route](ENTESB-5301/scheduled-route)
 - [ENTESB-5661/camel-charset](ENTESB-5661/camel-charset)
