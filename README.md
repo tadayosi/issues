@@ -8,6 +8,7 @@ Samples and reproducers for various projects.
 - [ENTESB-4850/camel-jms-routes](ENTESB-4850/camel-jms-routes)
 - [ENTESB-5301/scheduled-route](ENTESB-5301/scheduled-route)
 - [ENTESB-5661/camel-charset](ENTESB-5661/camel-charset)
+- [ENTESB-6028/camel-cxf-transport](ENTESB-6028/camel-cxf-transport)
 
 ## ActiveMQ
 
