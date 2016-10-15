@@ -11,7 +11,7 @@ public class CamelTransportJAXRSTest extends CamelBlueprintTestSupport {
 
     @Override
     protected String getBlueprintDescriptor() {
-        return CamelTransportJAXRSTest.class.getSimpleName() + ".xml";
+        return getClass().getSimpleName() + ".xml";
     }
 
     @Override
