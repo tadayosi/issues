@@ -16,15 +16,18 @@ public class HttpAsyncTest extends CamelTestSupport {
         return new RouteBuilder() {
             public void configure() {
                 // @formatter:off
-                from("seda:input")
+                from("direct:input")
                     .log("IN:  ${body}")
                     .split().tokenize(",")
+                        .log("> IN:  ${body}")
                         .doTry()
+                            .log("> TRY: ${body}")
                             .to("cxf://http://localhost:12345/test?dataFormat=RAW")
                         .doCatch(Throwable.class)
                             //.handled(true)
+                            .log("> ERR: ${body} - ${exception}")
                         .end()
-                        .log("OUT: ${body}")
+                        .log("> OUT: ${body} - ${exception}")
                         .to("mock:result")
                     .end()
                     .delay(1000)
@@ -37,11 +40,11 @@ public class HttpAsyncTest extends CamelTestSupport {
 
     @Test
     public void test() throws Exception {
-        int count = 100;
+        int count = 20;
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedMessageCount(count + 1);
 
-        template.sendBody("seda:input",
+        template.sendBody("direct:input",
             IntStream.range(0, count).mapToObj(Integer::toString).collect(Collectors.joining(",")));
         assertMockEndpointsSatisfied(5, TimeUnit.SECONDS);
     }
