@@ -24,31 +24,52 @@ public class CamelTransportJAXRSTest extends CamelBlueprintTestSupport {
     protected RouteBuilder createRouteBuilder() throws Exception {
         return new RouteBuilder() {
             public void configure() {
-                from("direct:input").id("route-test").streamCaching()
+                // Camel Transport
+                from("direct:input.camel").id("route-cxf-client").streamCaching()
                     .log("IN:  ${body} : ${headers}")
                     .setHeader(Exchange.HTTP_METHOD, constant("GET"))
                     .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))
                     .setHeader(Exchange.HTTP_URI, simple("/greeting/hello/${body}"))
+                    //.setHeader(Exchange.HTTP_PATH, simple("/greeting/hello/${body}"))
                     .inOut("cxfrs:bean:rsClient")
                     .log("OUT: ${body} : ${headers}")
                     .to("mock:result");
-
-                from("direct:cxf.in").id("route-cxf").streamCaching()
+                from("direct:cxf.in").id("route-cxf-server").streamCaching()
                     .log("IN:  ${body} : ${headers}")
                     .to("direct:cxf.out")
                     // workaround
                     //.setHeader(Message.RESPONSE_CODE, header(Exchange.HTTP_RESPONSE_CODE))
                     .log("OUT: ${body} : ${headers}");
+
+                // HTTP Transport
+                from("direct:input.http").id("route-http").streamCaching()
+                    .log("IN:  ${body} : ${headers}")
+                    .setHeader(Exchange.HTTP_METHOD, constant("GET"))
+                    .setHeader(Exchange.CONTENT_TYPE, constant("text/plain"))
+                    //.setHeader(Exchange.HTTP_URI, simple("/greeting/hello/${body}"))
+                    .setHeader(Exchange.HTTP_PATH, simple("/greeting/hello/${body}"))
+                    .inOut("cxfrs:bean:rsClient_http")
+                    .log("OUT: ${body} : ${headers}")
+                    .to("mock:result");
             }
         };
     }
 
     @Test
-    public void test() throws Exception {
+    public void camelTransport() throws Exception {
         MockEndpoint result = getMockEndpoint("mock:result");
         result.expectedBodiesReceived("Hello, Test!");
 
-        template.sendBody("direct:input", "Test");
+        template.sendBody("direct:input.camel", "Test");
+        assertMockEndpointsSatisfied();
+    }
+
+    @Test
+    public void httpTransport() throws Exception {
+        MockEndpoint result = getMockEndpoint("mock:result");
+        result.expectedBodiesReceived("Hello, Test!");
+
+        template.sendBody("direct:input.http", "Test");
         assertMockEndpointsSatisfied();
     }
 

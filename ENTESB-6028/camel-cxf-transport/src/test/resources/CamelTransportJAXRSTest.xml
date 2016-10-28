@@ -11,13 +11,27 @@
     http://cxf.apache.org/transports/camel/blueprint http://cxf.apache.org/schmemas/blueprint/camel.xsd
     http://cxf.apache.org/blueprint/jaxrs http://cxf.apache.org/schemas/blueprint/jaxrs.xsd">
 
+  <!-- Camel Tranport -->
   <jaxrs:server id="rsServer" address="camel://direct:cxf.out">
     <jaxrs:serviceBeans>
       <bean class="com.redhat.issues.camel.cxf.GreetingResourceBean" />
     </jaxrs:serviceBeans>
   </jaxrs:server>
-
   <cxf:rsClient id="rsClient" address="camel://direct:cxf.in"
+    serviceClass="com.redhat.issues.camel.cxf.GreetingResource"
+    loggingFeatureEnabled="true">
+    <cxf:providers>
+      <bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" />
+    </cxf:providers>
+  </cxf:rsClient>
+
+  <!-- HTTP Transport -->
+  <jaxrs:server id="rsServer_http" address="http://localhost:9000/">
+    <jaxrs:serviceBeans>
+      <bean class="com.redhat.issues.camel.cxf.GreetingResourceBean" />
+    </jaxrs:serviceBeans>
+  </jaxrs:server>
+  <cxf:rsClient id="rsClient_http" address="http://localhost:9000/"
     serviceClass="com.redhat.issues.camel.cxf.GreetingResource"
     loggingFeatureEnabled="true">
     <cxf:providers>
