@@ -35,11 +35,11 @@ public class CamelTransportJAXRSTest extends CamelBlueprintTestSupport {
                     .log("OUT: ${body} : ${headers}")
                     .to("mock:result");
                 from("direct:cxf.in").id("route-cxf-server").streamCaching()
-                    .log("IN:  ${body} : ${headers}")
+                    .log("> IN:  ${body} : ${headers}")
                     .to("direct:cxf.out")
                     // workaround
                     //.setHeader(Message.RESPONSE_CODE, header(Exchange.HTTP_RESPONSE_CODE))
-                    .log("OUT: ${body} : ${headers}");
+                    .log("> OUT: ${body} : ${headers}");
 
                 // HTTP Transport
                 from("direct:input.http").id("route-http").streamCaching()
