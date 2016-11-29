@@ -23,7 +23,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.switchyard>2.1.0.redhat-630131</version.switchyard>
+    <version.switchyard>2.1.0.redhat-630187</version.switchyard>
   </properties>
 
   <dependencyManagement>
