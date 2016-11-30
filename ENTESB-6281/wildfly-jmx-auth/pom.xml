@@ -11,7 +11,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <version.arquillian_universe>1.0.0.Alpha4</version.arquillian_universe>
+    <version.arquillian.universe>1.0.0.Alpha4</version.arquillian.universe>
     <version.junit>4.12</version.junit>
   </properties>
   <build>
@@ -39,7 +39,7 @@
       <dependency>
         <groupId>org.arquillian</groupId>
         <artifactId>arquillian-universe</artifactId>
-        <version>${version.arquillian_universe}</version>
+        <version>${version.arquillian.universe}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -49,6 +49,13 @@
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.wildfly.core</groupId>
+      <artifactId>wildfly-core-security</artifactId>
+      <version>2.2.0.Final</version>
       <scope>provided</scope>
     </dependency>
 

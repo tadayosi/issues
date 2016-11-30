@@ -23,7 +23,8 @@ public class JmxServletTest {
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class, TEST_NAME + ".war")
             .addClass(JmxServlet.class)
-            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+            .addAsManifestResource("jboss-deployment-structure.xml", "jboss-deployment-structure.xml");
     }
 
     @Test

@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.jboss.as.core.security.RealmUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,8 +27,8 @@ public class JmxServlet extends HttpServlet {
 
     private static final Logger LOG = LoggerFactory.getLogger(JmxServlet.class);
 
-    private static final String DOMAIN = "hawtio-domain";
-    private static final String USERNAME = "hawtio";
+    private static final String DOMAIN = "test-domain";
+    private static final String USERNAME = "admin";
     private static final String PASSWORD = "p@ssw0rd";
 
     private MBeanServer mBeanServer;
@@ -62,8 +63,9 @@ public class JmxServlet extends HttpServlet {
 
     private Subject login() {
         Subject subject = new Subject();
+        LOG.info("Subject: {}", subject);
         try {
-            new LoginContext(DOMAIN, subject, cs -> {
+            new LoginContext(DOMAIN, subject, cs ->
                 Arrays.stream(cs).forEach(c -> {
                     if (c instanceof NameCallback) {
                         ((NameCallback) c).setName(USERNAME);
@@ -72,8 +74,8 @@ public class JmxServlet extends HttpServlet {
                     } else {
                         LOG.debug("Unknown callback class: {}", c.getClass().getName());
                     }
-                });
-            }).login();
+                })).login();
+            //subject.getPrincipals().add(new RealmUser(USERNAME)); // Uncommenting this resolves the issue
         } catch (LoginException e) {
             e.printStackTrace();
         }
