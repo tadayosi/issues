@@ -11,3 +11,6 @@ indent_size = 2
 
 [*.rb]
 indent_size = 2
+
+[*.{html,ts,js,json}]
+indent_size = 2
