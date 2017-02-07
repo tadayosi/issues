@@ -18,8 +18,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-
-    <version.activemq>5.14.3</version.activemq>
   </properties>
 
   <dependencies>
@@ -35,7 +33,6 @@
     <dependency>
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-pool</artifactId>
-      <version>${version.activemq}</version>
     </dependency>
 
     <dependency>
