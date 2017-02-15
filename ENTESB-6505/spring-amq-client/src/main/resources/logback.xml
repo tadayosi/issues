@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
+  <property name="CONSOLE_LOG_PATTERN"
+    value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%18.18t]){faint} %clr(%-65.65logger{64}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+  <property name="FILE_LOG_PATTERN"
+    value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} [%18.18t] %-65.65logger{64} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+  <property name="LOG_PATH" value="." />
+
   <include resource="org/springframework/boot/logging/logback/base.xml" />
 
   <logger name="com.redhat.issues" level="DEBUG" />
   <logger name="org.apache" level="INFO" />
+  <logger name="org.apache.activemq.transport.failover" level="DEBUG" />
   <logger name="org.jboss" level="INFO" />
   <logger name="org.springframework" level="INFO" />
+  <logger name="org.springframework.jms.listener" level="DEBUG" />
 
 </configuration>

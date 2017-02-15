@@ -21,6 +21,14 @@
     <property name="messageListener" ref="messageListener" />
     <property name="concurrentConsumers" value="10" />
   </bean>
+  <!--
+  <bean id="jmsContainer" class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+    <property name="connectionFactory" ref="pooledConnectionFactory" />
+    <property name="destinationName" value="TEST" />
+    <property name="messageListener" ref="messageListener" />
+    <property name="concurrentConsumers" value="10" />
+  </bean>
+  -->
 
   <bean id="messageListener" class="com.redhat.issues.amq.SpringJmsConsumer" />
 
