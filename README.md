@@ -9,10 +9,13 @@ Samples and reproducers for various projects.
 - [ENTESB-5301/scheduled-route](ENTESB-5301/scheduled-route)
 - [ENTESB-5661/camel-charset](ENTESB-5661/camel-charset)
 - [ENTESB-6028/camel-cxf-transport](ENTESB-6028/camel-cxf-transport)
+- [ENTESB-6605/camel-cxf-hawtio](ENTESB-6605/camel-cxf-hawtio)
 
 ## ActiveMQ
 
 - [ENTESB-4996/amq-client](ENTESB-4996/amq-client)
+- [ENTESB-6505/pooled-amq-client](ENTESB-6505/pooled-amq-client)
+- [ENTESB-6505/spring-amq-client](ENTESB-6505/spring-amq-client)
 
 ## CXF
 
@@ -42,3 +45,4 @@ Samples and reproducers for various projects.
 - [ENTESB-5323/tabulardata-test](ENTESB-5323/tabulardata-test)
 - [ENTESB-5639/jetty-jmx-test](ENTESB-5639/jetty-jmx-test)
 - [ENTESB-5856/jetty-continuation-test](ENTESB-5856/jetty-continuation-test)
+- [ENTESB-6281/wildfly-jmx-auth](ENTESB-6281/wildfly-jmx-auth)
