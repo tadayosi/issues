@@ -2,12 +2,12 @@ var request = require('request');
 
 const jolokia = 'http://localhost:8181/hawtio/jolokia';
 const url = jolokia + '/?maxDepth=7&maxCollectionSize=50000&ignoreErrors=true&canonicalNaming=false';
-const broker = 'amq';
 
 var interval = process.argv[2] ? process.argv[2] : 1000;
 var times = process.argv[3] ? process.argv[3] : 1000;
+var broker = process.argv[4] ? process.argv[4] : 'amq';
 
-console.log('sending request to', url, 'at intervals of', interval, 'ms up to', times, 'times');
+console.log('sending request to', broker, url, 'at intervals of', interval, 'ms up to', times, 'times');
 
 function loop(n, action, wait, count = 1) {
   if (n === 0) return;
@@ -47,7 +47,7 @@ function callJolokia(count) {
         console.error('error: ', error);
         return;
       }
-      //console.log('response got: ', body);
+      console.log('response got: ', body.length);
     });
 };
 

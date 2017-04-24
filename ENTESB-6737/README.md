@@ -7,6 +7,6 @@
     $ npm install
     $ node index.js
 
-This will send requests at `1000` ms intervals and `1000` times. If you want to change the test settings, run the script as follows:
+This will send requests to broker named `amq` at `1000` ms intervals and `1000` times. If you want to change the test settings, run the script as follows:
 
-    $ node index.js <intervals (ms)> <times>
+    $ node index.js <intervals (ms)> <times> <broker name>
