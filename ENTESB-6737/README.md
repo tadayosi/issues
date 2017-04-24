@@ -4,6 +4,12 @@
 
 ## How to run
 
+Start a Karaf container and run the following command:
+
+    JBossFuse:karaf@root> shell:source create-queues.script
+
+Then run the test script:
+
     $ npm install
     $ node index.js
 
