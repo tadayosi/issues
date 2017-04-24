@@ -27,6 +27,7 @@ Samples and reproducers for various projects.
 
 - [ENTESB-5219/hawtio-rbac-test](ENTESB-5219/hawtio-rbac-test)
 - [ENTESB-5775/hawtio-rbac-amq-test](ENTESB-5775/hawtio-rbac-amq-test)
+- [ENTESB-6737 (jolokia-performance-test)](ENTESB-6737)
 
 ## SwitchYard
 
@@ -46,3 +47,4 @@ Samples and reproducers for various projects.
 - [ENTESB-5639/jetty-jmx-test](ENTESB-5639/jetty-jmx-test)
 - [ENTESB-5856/jetty-continuation-test](ENTESB-5856/jetty-continuation-test)
 - [ENTESB-6281/wildfly-jmx-auth](ENTESB-6281/wildfly-jmx-auth)
+- [ENTESB-6478 (xss-sample)](ENTESB-6478)

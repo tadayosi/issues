@@ -1,0 +1,12 @@
+{
+  "name": "jolokia-performance-test",
+  "version": "1.0.0",
+  "description": "ENTESB-6737 reproducer",
+  "main": "index.js",
+  "repository": "tadayosi/issues",
+  "author": "Tadayoshi Sato",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
