@@ -3,6 +3,11 @@ var request = require('request');
 const jolokia = 'http://localhost:8181/hawtio/jolokia';
 const url = jolokia + '/?maxDepth=7&maxCollectionSize=50000&ignoreErrors=true&canonicalNaming=false';
 
+const username = 'admin';
+//const username = 'viewer';
+const password = 'admin';
+//const password = 'viewer';
+
 var interval = process.argv[2] ? process.argv[2] : 1000;
 var times = process.argv[3] ? process.argv[3] : 1000;
 var broker = process.argv[4] ? process.argv[4] : 'amq';
@@ -36,8 +41,8 @@ function callJolokia(count) {
         'Content-Type': 'application/json'
       },
       auth: {
-        username: 'admin',
-        password: 'admin'
+        username: username,
+        password: password
       },
       json: requestData()
     },
