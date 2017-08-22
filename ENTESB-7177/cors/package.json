@@ -1,0 +1,17 @@
+{
+  "name": "cors-sample",
+  "version": "1.0.0",
+  "description": "CORS sample",
+  "main": "index.js",
+  "repository": "tadayosi/issues",
+  "license": "Apache-2.0",
+  "scripts": {
+    "server": "node index.js",
+    "client1": "http-server client -p 3001",
+    "client2": "http-server client -p 3002"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "http-server": "^0.10.0"
+  }
+}
