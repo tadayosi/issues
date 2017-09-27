@@ -1,0 +1,7 @@
+fabric:create -r manualip -m 127.0.0.1 --wait-for-provisioning
+container-create-child --profile gateway-http root gateway
+container-create-child --profile quickstarts-cxf-rest root rest1
+container-create-child --profile quickstarts-cxf-rest root rest2
+container-create-child --profile quickstarts-cxf-soap root soap1
+container-create-child --profile quickstarts-cxf-soap root soap2
+watch container-list
