@@ -5,6 +5,7 @@ target/
 
 *.zip
 *.gz
+*.out
 
 *.iml
 
