@@ -8,5 +8,6 @@ target/
 *.out
 
 *.iml
+*.code-workspace
 
 ENTESB-5301/
