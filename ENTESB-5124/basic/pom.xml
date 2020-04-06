@@ -33,7 +33,7 @@
         <!-- cxf.version>3.2.0-SNAPSHOT</cxf.version -->
         <!-- cxf.version>3.0.9</cxf.version -->
         <cxf.version>3.0.4.redhat-621084</cxf.version>
-        <jetty.version>8.1.19.v20160209</jetty.version>
+        <jetty.version>9.4.27.v20200227</jetty.version>
         <httpclient.version>3.1</httpclient.version>
     </properties>
     <profiles>
