@@ -17,7 +17,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <version.camel>2.15.1.redhat-620133</version.camel>
-    <version.activemq>5.11.0.redhat-620133</version.activemq>
+    <version.activemq>5.15.12</version.activemq>
     <version.fabric>1.2.0.redhat-621084</version.fabric>
     <!--
     <version.camel>2.15.1.redhat-621084</version.camel>
