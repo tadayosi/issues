@@ -17,7 +17,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <version.camel>2.17.0.redhat-630189</version.camel>
-    <version.activemq>5.11.0.redhat-630189</version.activemq>
+    <version.activemq>5.15.12</version.activemq>
     <version.fabric>1.2.0.redhat-630189</version.fabric>
     <!-- fabric8 deploy profile configuration -->
     <fabric8.profile>issue-master-controlbus</fabric8.profile>
