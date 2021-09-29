@@ -1,0 +1,18 @@
+apiVersion: hawt.io/v1alpha1
+kind: Hawtio
+metadata:
+  name: hawtio-online
+spec:
+  type: Namespace
+  nginx:
+    clientBodyBufferSize: 256k
+    proxyBuffers: 16 128k
+    subrequestOutputBufferSize: 100m
+  replicas: 1
+  resources:
+    limits:
+      cpu: "1"
+      memory: 100Mi
+    requests:
+      cpu: 200m
+      memory: 32Mi
