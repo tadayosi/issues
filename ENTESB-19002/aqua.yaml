@@ -1,0 +1,8 @@
+---
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+registries:
+- type: standard
+  ref: v2.26.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+- name: apache/camel-k@v1.6.1
