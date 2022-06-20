@@ -3,6 +3,11 @@
 # https://aquaproj.github.io/
 registries:
 - type: standard
-  ref: v2.26.0 # renovate: depName=aquaproj/aqua-registry
+  ref: v2.28.0 # renovate: depName=aquaproj/aqua-registry
+- name: local
+  type: local
+  path: /home/tasato/.aqua-registry.yaml
 packages:
-- name: apache/camel-k@v1.6.1
+- name: redhat/camel-k
+  registry: local
+  version: 1.6.7
